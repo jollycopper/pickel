@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126073026) do
+ActiveRecord::Schema.define(version: 20151202144510) do
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "year"
+    t.integer  "term"
+    t.string   "instructor"
+    t.integer  "quantity"
+    t.text     "description"
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
