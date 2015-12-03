@@ -1,0 +1,2 @@
+module CourseSelectHelper
+end
