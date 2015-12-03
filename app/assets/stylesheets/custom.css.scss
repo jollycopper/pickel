@@ -7,10 +7,6 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
-}
-
 section {
   overflow: auto;
 }
@@ -72,7 +68,7 @@ $gray-medium-light: #eaeaea;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: 1px;
   padding-top: 15px;
   font-weight: bold;
   &:hover {
@@ -129,6 +125,20 @@ input, textarea, select, .uneditable-input {
     color: $state-danger-text;
   }
 }
+
+.course_list {
+  .course_name {
+    font-weight: bold;
+  }
+  .course_list_td {
+    border-top: 0px;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+
+
+
 
 html {
   text-rendering: optimizeLegibility !important;
@@ -289,7 +299,6 @@ html {
   border: 1px solid transparent;
   cursor: pointer;
   display: inline-block;
-  font-size: 13px;
   font-weight: normal;
   line-height: 1.42857;
   margin-top: 0;
@@ -720,6 +729,8 @@ p.muted {
 .search-btn {
   width: 180px;
   float: none;
+  text-transform: uppercase;
+  font-size: 1;
 }
 .form-inline .form-control {
   width: 100%;
@@ -733,4 +744,8 @@ p.muted {
 /*custom*/
 .home-tron-search .main_description {
   text-align: center;
+}
+
+.panel-body {
+  padding: $panel-body-padding;
 }
