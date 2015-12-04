@@ -1,14 +1,15 @@
 <% provide(:title, "Home") %>
 <div class="center jumbotron">
-  <h1>Welcome to the Pickel!</h1>
+  <h1>Welcome to Pickel!</h1>
 
-  <h2>
-    Pickel is a web app that enables you to elegantly pick the courses. We offer features such as quick search by title,
-    professor or year, and efficient administer management.
-  </h2>
+  <div class="static_page">
+    <h2>
+      Pickel is a web app that enables you to elegantly pick the courses. We offer features such as quick search by
+      title, professor or year, and efficient administer management.
+    </h2>
+  </div>
 
   <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
-            'http://rubyonrails.org/' %>
+<%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>

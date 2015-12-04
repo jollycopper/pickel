@@ -1,34 +1,92 @@
-<p id="notice"><%= notice %></p>
+<% provide :title, "Course detail" %>
+<div class="container" id="listings-page">
+  <div class="row">
+    <div class="col-sm-12 listing-wrapper listings-top listings-bottom">
 
-<p>
-  <strong>Instructor:</strong>
-  <%= @course.instructor %>
-</p>
+      <div class="row">
+        <div class="col-sm-7">
+          <h1><%= @course.title %></h1>
+        </div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @course.year %>
-</p>
+        <div class="col-sm-5">
+          <div class="quantity"><%= @course.quantity %> slots left</div>
+        </div>
+      </div>
 
-<p>
-  <strong>Term:</strong>
-  <%= @course.term %>
-</p>
+      <hr>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @course.quantity %>
-</p>
+      <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
+        <div class="col-sm-7">
+          <h3>Details</h3>
 
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
+          <div class="row">
+
+            <div class="col-xs-6">
+              <table class="table">
+
+                <tbody>
+                <tr>
+                  <th>ID</th>
+                  <td><%= @course.id %></td>
+                </tr>
+                <tr>
+                  <th>Instructor</th>
+                  <td><%= @course.instructor %></td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-xs-6">
+              <table class="table">
+
+                <tbody>
+                <tr>
+                  <th>Year</th>
+                  <td><%= @course.year %></td>
+                </tr>
+                <tr>
+                  <th>Term</th>
+                  <td><%= @course.term.capitalize %></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p><%= @course.description %></p>
+        </div>
+
+        <div class="col-sm-5 center">
+          <div class="row center">
+
+            <div class="col-sm-12">
+              <%= link_to image_tag("course-detail.jpg", alt: "Rails logo", class: "raised", style: "width: 100%"), 'http://rubyonrails.org/' %>
+            </div>
+          </div>
+          <br>
+          <br>
+
+          <div class="col-sm-6" style="text-align: center; margin: 0 auto">
+            <button class="btn btn-primary" style="text-align: center; width: 150px; " type="button">Add to cart</button>
+          </div>
+
+          <div class="col-sm-6" style="text-align: center; margin: 0 auto">
+            <button class="btn btn-primary" style="text-align: center;width: 150px; " type="button">Checkout</button>
+          </div>
+
+          <br>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

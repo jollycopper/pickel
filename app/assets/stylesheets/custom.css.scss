@@ -28,26 +28,32 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-h1 {
-  font-size: 3em;
+h1{
   letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
+.static_page {
+  h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: $gray-light;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
 
 /* mixins */
 
@@ -633,12 +639,18 @@ LISTINGS
 .featured-gallery .featured-thumbnail img {
   width: 100%;
 }
-#listings-page .price {
-  font-size: 24px;
-  text-align: left;
-}
-#listings-page hr {
-  margin-bottom: 10px;
+#listings-page {
+  .quantity {
+    font-size: 24px;
+    text-align: left;
+    margin: 30px 0px 0px 0px
+  }
+  hr {
+    margin-bottom: 10px;
+  }
+  h1 {
+    text-transform: capitalize;
+  }
 }
 #visualization {
   height: 300px;
@@ -707,7 +719,7 @@ p.muted {
   width: 100%;
 }
 @media (min-width: 768px) {
-  #listings-page .price {
+  #listings-page .quantity {
     text-align: right;
   }
   .footer {
