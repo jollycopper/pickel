@@ -1,6 +1,13 @@
 class CourseSelectController < ApplicationController
   def search
-    @courses = Course.paginate(page: params[:page], per_page: 10)
-    # @courses = Course.all
+    if params[:query]
+      @courses = Course.where("title LIKE ?", "%#{params[:query][:query_str]}%").paginate(page: params[:page], per_page: 8)
+    else
+      @courses = Course.paginate(page: params[:page], per_page: 8)
+    end
+  end
+
+  def query
+
   end
 end

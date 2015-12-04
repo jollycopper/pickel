@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'search' => 'course_select#search'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
   resources :users
   resources :courses
 end

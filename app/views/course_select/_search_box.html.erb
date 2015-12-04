@@ -1,55 +1,27 @@
 <div class="jumbotron home-tron-search well" style="">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <br>
-        <h1>Search For Courses</h1>
+    <div class="col-sm-12">
+      <br>
 
-        <br><br>
-        <div class="row">
+      <h1>Search for courses</h1>
+      <br>
 
-          <div class="col-sm-12" style="text-align: center">
-            <div class="row">
-
-              <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <%= form_for(:query, url: search_path, method: :get) do |f| %>
                 <div class="input-group">
-                  <input type="text" class="form-control col-sm-6" placeholder="Algorithm, Web Programming">
-                  <div class=" input-group-addon hidden-xs">
-                    <div class="btn-group">
-                      <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
-                        Search by <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Title</a></li>
-                        <li><a href="#">Instructor</a></li>
-                        <li><a href="#">Year</a></li>
-                      </ul>
-                    </div>
+                  <%= f.text_field :query_str, class: 'form-control col-sm-6', placeholder: "Algorithm, Web Programming" %>
+                  <div class="input-group-addon">
+                    <%= f.submit "search", class: "btn btn-primary", style: "color:white; text-transform:uppercase;" %>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
-          <div class="col-sm-12" style="text-align: center">
-            <a href="listings.html" class="btn btn-primary search-btn">Search</a>
-          </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
-          <div class="col-sm-12" style="text-align: center">
-
-            <div id="quotes">
-              <div class="text-item" style="display: none;">New students need to <strong>signup</strong> first.</div>
-              <div class="text-item" style="display: none;">The <strong>deadline</strong> of course registration is <strong>12/9</strong>.</div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
+      <br>
+      <br>
     </div>
   </div>
 </div>
