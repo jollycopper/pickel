@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -17,6 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @courses = []
+    @courses = @courses.paginate(page: params[:page], per_page: 8)
   end
 
 

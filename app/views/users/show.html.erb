@@ -3,3 +3,6 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
 </h1>
+<br>
+<% provide(:list_title, 'Course history') %>
+<%= render 'shared/course_list' %>

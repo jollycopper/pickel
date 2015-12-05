@@ -18,7 +18,13 @@
                       </div>
 
                       <div class="col-sm-3">
-                        <h3 class="price-text"><strong><%= course.quantity %></strong> left</h3>
+                        <% if @is_cart %>
+                            <%= link_to("/cart/#{course.id}", method: :delete, class: "btn btn-danger btn-sm remove-btn") do %>
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remove
+                            <% end %>
+                        <% else %>
+                          <h3 class="price-text"><strong><%= course.quantity %></strong> left</h3>
+                        <% end %>
                       </div>
                     </div>
                     <p class="muted"><%= course.instructor %></p>

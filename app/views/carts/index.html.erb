@@ -1,0 +1,15 @@
+<% provide(:title, 'Cart') %>
+
+<h1>My carts</h1>
+<br>
+
+<% provide(:list_title, 'Selected courses') %>
+<% if @courses.size == 0 %>
+    <h2>Your cart is empty.</h2>
+<% else %>
+    <%= render 'shared/course_list' %>
+<% end %>
+
+<% if @courses.size > 0 %>
+  <%= link_to "Checkout", cart_checkout_path, class: "btn btn-success btn-lg" %>
+<% end %>

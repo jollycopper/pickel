@@ -5,11 +5,16 @@
 
       <div class="row">
         <div class="col-sm-7">
-          <h1><%= @course.title %></h1>
+          <h1>
+            <%= @course.title %>
+          </h1>
         </div>
 
         <div class="col-sm-5">
-          <div class="quantity"><%= @course.quantity %> slots left</div>
+          <div class="quantity">
+            <%= @course.quantity %>
+            slots left
+          </div>
         </div>
       </div>
 
@@ -18,7 +23,9 @@
       <div class="row">
 
         <div class="col-sm-7">
-          <h3>Details</h3>
+          <h3>
+            Details
+          </h3>
 
           <div class="row">
 
@@ -27,12 +34,20 @@
 
                 <tbody>
                 <tr>
-                  <th>ID</th>
-                  <td><%= @course.id %></td>
+                  <th>
+                    ID
+                  </th>
+                  <td>
+                    <%= @course.id %>
+                  </td>
                 </tr>
                 <tr>
-                  <th>Instructor</th>
-                  <td><%= @course.instructor %></td>
+                  <th>
+                    Instructor
+                  </th>
+                  <td>
+                    <%= @course.instructor %>
+                  </td>
                 </tr>
 
                 </tbody>
@@ -44,18 +59,28 @@
 
                 <tbody>
                 <tr>
-                  <th>Year</th>
-                  <td><%= @course.year %></td>
+                  <th>
+                    Year
+                  </th>
+                  <td>
+                    <%= @course.year %>
+                  </td>
                 </tr>
                 <tr>
-                  <th>Term</th>
-                  <td><%= @course.term.capitalize %></td>
+                  <th>
+                    Term
+                  </th>
+                  <td>
+                    <%= @course.term.capitalize %>
+                  </td>
                 </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <p><%= @course.description %></p>
+          <p>
+            <%= @course.description %>
+          </p>
         </div>
 
         <div class="col-sm-5 center">
@@ -69,11 +94,12 @@
           <br>
 
           <div class="col-sm-6" style="text-align: center; margin: 0 auto">
-            <button class="btn btn-primary" style="text-align: center; width: 150px; " type="button">Add to cart</button>
+            <%= link_to 'Add to cart', "/cart/#{@course.id}", class: "btn btn-primary", style: "text-align: center; width: 150px" %>
           </div>
 
           <div class="col-sm-6" style="text-align: center; margin: 0 auto">
-            <button class="btn btn-primary" style="text-align: center;width: 150px; " type="button">Checkout</button>
+            <% is_cart_empty = !session[:cart] or session[:cart].empty? %>
+            <%= link_to "Checkout", "/cart/checkout", style: "text-align: center;width: 150px;", class: "btn btn-primary #{'disabled' if is_cart_empty}" %>
           </div>
 
           <br>
@@ -88,5 +114,6 @@
 
 </div>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Edit', edit_course_path(@course) %>
+|
 <%= link_to 'Back', courses_path %>
