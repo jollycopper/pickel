@@ -32,8 +32,24 @@ class CartsController < ApplicationController
       redirect_to action: 'index'
       return
     end
+
+    succeeded = false
+    session[:cart].each do |course_id|
+      course = Course.find_by(id: course_id)
+      if !current_user.selected?(course)
+        current_user.select(course)
+        succeeded = true
+      end
+    end
+
+    if succeeded
+      flash[:success] = 'Congratulations! Courses are selected.'
+    else
+      flash[:danger] = 'Course not added: course already taken by the user'
+    end
+
     session[:cart] = nil
     @courses = []
-    redirect_to action: 'index'
+    redirect_to current_user
   end
 end

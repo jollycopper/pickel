@@ -19,14 +19,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @courses = []
+    @courses = @user.courses
     @courses = @courses.paginate(page: params[:page], per_page: 8)
   end
 
-
   private
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation);
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation);
+    end
 end

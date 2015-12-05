@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :selections, dependent: :destroy
+  has_many :courses, through: :selections
+
   # Only save downcase email
   before_save { self.email = email.downcase }
   # name must be present
@@ -11,4 +14,12 @@ class User < ActiveRecord::Base
   # Add password digest to the model
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def select(course)
+    selections.create(course_id: course.id)
+  end
+
+  def selected?(course)
+    courses.include?(course)
+  end
 end

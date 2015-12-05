@@ -35,3 +35,7 @@ end
                  description: description,
                  quantity: quantity)
 end
+
+test_user = User.first
+courses = Course.all[20...22]
+courses.each { |course| test_user.select(course)}
