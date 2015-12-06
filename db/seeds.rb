@@ -24,7 +24,7 @@ end
 40.times do |n|
   title = Faker::Hacker.adjective + ' ' + Faker::Hacker.noun
   term = rand(0...3)
-  instructor  = Faker::Name.name
+  instructor  = Faker::name.name
   year = rand(2014...2016)
   quantity = rand(30...100)
   description = Faker::Lorem.paragraph
