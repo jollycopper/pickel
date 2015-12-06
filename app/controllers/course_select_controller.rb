@@ -4,8 +4,9 @@ class CourseSelectController < ApplicationController
   def search
     if params[:query]
       query_str = "\"%#{params[:query][:query_str]}%\""
+      query_year = params[:query][:query_str].to_i
       @courses = Course
-                     .where("title LIKE #{query_str} or instructor like #{query_str} or description like #{query_str}")
+                     .where("title LIKE #{query_str} or instructor like #{query_str} or description like #{query_str} or year = #{query_year}")
                      .paginate(page: params[:page], per_page: 8)
     else
       @courses = Course.paginate(page: params[:page], per_page: 8)

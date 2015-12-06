@@ -11,7 +11,7 @@
           <div class="row">
             <%= form_for(:query, url: search_path, method: :get) do |f| %>
                 <div class="input-group">
-                  <%= f.text_field :query_str, class: 'form-control col-sm-6', placeholder: "Algorithm, Web Programming" %>
+                  <%= f.text_field :query_str, class: 'form-control col-sm-6', placeholder: "Title, Professor or Year" %>
                   <div class="input-group-addon">
                     <%= f.submit "search", class: "btn btn-primary", style: "color:white; text-transform:uppercase;" %>
                   </div>
