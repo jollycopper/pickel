@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :term %><br>
-    <%= f.number_field :term %>
+    <%= f.select :term, [:fall, :spring, :winter, :summer] %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br>
