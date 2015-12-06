@@ -36,10 +36,7 @@ class CartsController < ApplicationController
     succeeded = false
     session[:cart].each do |course_id|
       course = Course.find_by(id: course_id)
-      if !current_user.selected?(course)
-        current_user.select(course)
-        succeeded = true
-      end
+      succeeded = current_user.select(course)
     end
 
     if succeeded

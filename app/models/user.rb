@@ -16,7 +16,16 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
 
   def select(course)
+    if self.selected?(course)
+      return false
+    end
+    if course.quantity <= 0
+      return false
+    end
     selections.create(course_id: course.id)
+    course.quantity -= 1
+    course.save
+    return true
   end
 
   def selected?(course)
