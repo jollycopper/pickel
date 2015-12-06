@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show]
+  before_action :admin_user, only: [:index, :new, :edit, :create, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
@@ -70,5 +72,19 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:instructor, :year, :term, :quantity, :description, :title)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in!"
+        redirect_to login_url
+      end
+    end
+
+    def admin_user
+      unless logged_in? && current_user.admin?
+        flash[:danger] = "You do not have the permission!"
+        redirect_to root_url
+      end
     end
 end
