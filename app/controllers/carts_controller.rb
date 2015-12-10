@@ -49,4 +49,11 @@ class CartsController < ApplicationController
     @courses = []
     redirect_to current_user
   end
+
+  def drop
+    course = Course.find_by(id: params[:id])
+    current_user().drop(course)
+    flash[:success] = 'Congratulations! Courses are selected.'
+    redirect_to current_user
+  end
 end

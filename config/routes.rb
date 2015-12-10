@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'cart/checkout', to: 'carts#checkout'
+  delete 'cart/checkout/:id', to: 'carts#drop'
   get 'cart', to: 'carts#index'
   get 'cart/:id', to: 'carts#add'
   delete 'cart/:id', to: 'carts#remove'

@@ -31,4 +31,9 @@ class User < ActiveRecord::Base
   def selected?(course)
     courses.include?(course)
   end
+
+  def drop(course)
+    return unless selected?(course)
+    courses.delete(course)
+  end
 end
